@@ -1,0 +1,155 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    background-color: #111;
+    color: #fff;
+    font-family: 'Amiri', serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  #bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    opacity: 50%;
+  }
+  
+  .container {
+    text-align: center;
+    position: relative;
+  }
+  
+  h1 {
+    font-size: 2em;
+    letter-spacing: 0.1em;
+    white-space: pre;
+    margin: 0;
+  }
+  
+  #subtitle {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 1.1em;
+    color: #fff;
+    font-family: 'Amiri', serif;
+    font-style: italic;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid #A31A16;
+    width: 0;
+    animation: none;
+    opacity: 0;
+  }
+  
+  #pluma-destino {
+    position: absolute;
+    top: calc(100% + 50px); /* ajustá la distancia al subtítulo */
+    left: 50%;
+    transform: translateX(-50%);
+    height: 1px;
+    width: 1px;
+  }
+  
+  .highlight {
+    color: #A31A16;
+    transition: color 0.3s ease;
+  }
+  
+  .feather-wrapper {
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translateX(-50%);
+    pointer-events: none;
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 1.5s ease;
+  }
+  
+  .feather {
+    width: 60px;
+    height: auto;
+    transform: rotate(-70deg);
+  }
+  
+  .feather.resting {
+    animation: none;
+    transform: rotate(-70deg);
+  }
+  
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 25ch }
+  }
+  
+  @keyframes blink {
+    0%, 49% { border-color: #A31A16; }
+    50%, 100% { border-color: transparent; }
+  }
+  
+  .floating-menu {
+    position: fixed;
+    top: calc(75vh);
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: transparent;
+    z-index: 10;
+    transition: all 1s ease;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  /* Cuando se fija arriba */
+  .floating-menu.top {
+    top: 10px;
+  }
+  
+  .floating-menu button {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 1.2em; /* aumentamos tamaño */
+    font-family: 'Amiri', serif;
+    color: #fff;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+  }
+  
+  .floating-menu button span {
+    display: inline-block;
+    transform: translateX(-100%);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+    animation-delay: 0.5s;
+  }
+  
+  .floating-menu .dot {
+    color: #A31A16;
+    font-size: 1.5em;
+    user-select: none;
+    pointer-events: none;
+  }
+  
+  /* animación del texto */
+  @keyframes slideIn {
+    to {
+      transform: translateX(0);
+      opacity: 1;
+    }
+  }
+  
