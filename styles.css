@@ -1,18 +1,30 @@
-* {
+
+  * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
   }
+
+  @font-face {
+    font-family: 'Nautilus Pompilius';
+    src: url('NautilusPompilius.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
   
   body {
+    font-family: "Arial Rounded MT Light", "Arial Rounded MT", "Arial", sans-serif;
     background-color: #111;
     color: #fff;
-    font-family: 'Amiri', serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
+  }
+
+  #title {
+    font-family: 'Nautilus Pompilius', sans-serif;
   }
   
   #bg {
@@ -25,17 +37,74 @@
     opacity: 50%;
   }
   
+  section {
+    width: 100%;
+    display: block;
+  }
+  
+  .navbar {
+    position: absolute;
+    top: 25vh;
+    left: 0;
+    width: 100%;
+    background-color: rgba(17, 17, 17, 0.95);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 12px 0;
+    z-index: 999;
+    transition: none;
+  }
+  
+  .navbar.sticky {
+    position: fixed;
+    top: 0;
+  }
+  
+  
+  
+  .navbar button {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 1.1em;
+    font-family: "Arial Rounded MT Light", "Arial Rounded MT", "Arial", sans-serif;
+    cursor: pointer;
+  }
+  
+  .dot {
+    color: #6C1D45;
+    font-size: 1.4em;
+  }
+  
+  /* INTRO */
+  .intro {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+  }
+  
   .container {
     text-align: center;
     position: relative;
   }
   
   h1 {
-    font-size: 2em;
+    font-size: 3em;
     letter-spacing: 0.1em;
     white-space: pre;
     margin: 0;
   }
+
+  h2 {
+    font-family: 'Nautilus Pompilius', sans-serif;
+    font-size: 2em;
+  }
+  
   
   #subtitle {
     position: absolute;
@@ -43,12 +112,9 @@
     left: 50%;
     transform: translateX(-50%);
     font-size: 1.1em;
-    color: #fff;
-    font-family: 'Amiri', serif;
-    font-style: italic;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 2px solid #A31A16;
+    border-right: 2px solid #6C1D45;
     width: 0;
     animation: none;
     opacity: 0;
@@ -56,7 +122,7 @@
   
   #pluma-destino {
     position: absolute;
-    top: calc(100% + 50px); /* ajustá la distancia al subtítulo */
+    top: 200%;
     left: 50%;
     transform: translateX(-50%);
     height: 1px;
@@ -64,7 +130,7 @@
   }
   
   .highlight {
-    color: #A31A16;
+    color: #6C1D45;
     transition: color 0.3s ease;
   }
   
@@ -75,7 +141,6 @@
     transform: translateX(-50%);
     pointer-events: none;
     opacity: 0;
-    z-index: 2;
     transition: opacity 1.5s ease;
   }
   
@@ -87,69 +152,87 @@
   
   .feather.resting {
     animation: none;
-    transform: rotate(-70deg);
   }
   
+  .sobre-mi {
+    display: flex;
+    font-family: "Arial Rounded MT Light", "Arial Rounded MT", "Arial", sans-serif;
+    min-height: 300vh;
+    background-color: #fff;
+    color: #111;
+  }
+  
+  .sobre-mi-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1200px;
+    min-height: 100vh;
+  }
+  
+  .sobre-mi-fotos {
+    flex: 1;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f8f8;
+  }
+  
+  .sobre-mi-fotos img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+  }
+  
+  /* COLUMNA DERECHA (scroll) */
+  .sobre-mi-textos {
+    flex: 2;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .texto-bloque {
+    min-height: 100vh; /* Cada bloque ocupa toda la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centramos verticalmente el contenido */
+    padding: 0 40px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  /* PLACEHOLDER */
+  .placeholder {
+    background: #222;
+    color: #fff;
+    padding: 80px 20px;
+    text-align: center;
+  }
+  
+  /* ANIMACIONES */
   @keyframes typing {
     from { width: 0 }
-    to { width: 25ch }
+    to { width: 30ch }
   }
   
   @keyframes blink {
-    0%, 49% { border-color: #A31A16; }
+    0%, 49% { border-color: #6C1D45; }
     50%, 100% { border-color: transparent; }
   }
   
-  .floating-menu {
-    position: fixed;
-    top: calc(75vh);
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: transparent;
-    z-index: 10;
-    transition: all 1s ease;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  /* Cuando se fija arriba */
-  .floating-menu.top {
-    top: 10px;
-  }
-  
-  .floating-menu button {
-    background: none;
-    border: none;
-    padding: 0;
-    font-size: 1.2em; /* aumentamos tamaño */
-    font-family: 'Amiri', serif;
-    color: #fff;
-    cursor: pointer;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .floating-menu button span {
-    display: inline-block;
-    transform: translateX(-100%);
+  .fade-up {
     opacity: 0;
-    animation: slideIn 1s forwards;
-    animation-delay: 0.5s;
+    transform: translateY(40px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
   }
   
-  .floating-menu .dot {
-    color: #A31A16;
-    font-size: 1.5em;
-    user-select: none;
-    pointer-events: none;
-  }
-  
-  /* animación del texto */
-  @keyframes slideIn {
-    to {
-      transform: translateX(0);
-      opacity: 1;
-    }
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   

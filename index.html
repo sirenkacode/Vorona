@@ -10,24 +10,79 @@
 </head>
 <body>
   <div id="bg"></div>
-  <div class="container">
-    <h1 id="title">Катерина Да Кунья Станко</h1>
-    <p id="subtitle" class="typewriter"></p>
-    <div id="pluma-destino"></div>
-    <div class="feather-wrapper" id="featherWrapper">
-      <img src="feather.png" alt="feather" class="feather" id="feather" />
+  <section class="intro" id="inicio">
+    <div class="container">
+  
+      <h1 id="title">Катерина Да Кунья Станко</h1>
+      <p id="subtitle" class="typewriter"></p>
+      <div id="pluma-destino"></div>
+  
+      <!-- NAVBAR dentro de la sección 1 -->
+      <nav class="navbar" id="navbar">
+        <button onclick="scrollToSection('inicio')"><span>Inicio</span></button>
+        <div class="dot">•</div>
+        <button onclick="scrollToSection('sobreMi')"><span>Quien soy</span></button>
+        <div class="dot">•</div>
+        <button onclick="scrollToSection('portfolio')"><span>Portfolio</span></button>
+        <div class="dot">•</div>
+        <button onclick="scrollToSection('contacto')"><span>Contacto</span></button>
+      </nav>
+  
+      <div class="feather-wrapper" id="featherWrapper">
+        <img src="feather.png" alt="feather" class="feather" id="feather" />
+      </div>
+  
     </div>
-  </div>
+  </section>
+    <!-- seccion sobre mi -->
+  <section class="sobre-mi" id="sobreMi">
+    <div class="sobre-mi-wrapper">
+      
+      <!-- COLUMNA IZQUIERDA: FOTOS -->
+      <div class="sobre-mi-fotos">
+        <img src="profile1.jpg" alt="Foto 1" />
+        <img src="profile2.jpg" alt="Foto 2" />
+        <img src="profile3.webp" alt="Foto 2" />
+        <img src="profile4.jpg" alt="Foto 2" />
+      </div>
+  
+      <!-- COLUMNA DERECHA: TEXTO SCROLLABLE -->
+      <div class="sobre-mi-textos">
+        <div class="texto-bloque">
+          <h2>Quien soy</h2>
+          <p>
+            Soy una profesional creativa, proactiva y orientada a resultados,
+            con una gran pasión por los retos y una rápida capacidad de
+            aprendizaje, lo que me permite adaptarme con facilidad a nuevos
+            desafíos. Aunque trabajo como freelance, valoro profundamente
+            el trabajo en equipo y el compañerismo, ya que creo que la
+            colaboración es clave para el éxito de cualquier proyecto. Como
+            diseñadora, me especializo en encontrar enfoques auténticos,
+            funcionales y adaptados a las necesidades específicas de cada
+            proyecto, asegurando resultados innovadores y de alta calidad.
+          </p>
+        </div>
+        <div class="texto-bloque">
+          <h2>Diseño</h2>
+          <p>
+            Me especializo en enfoques auténticos, funcionales y adaptados a las necesidades específicas de cada proyecto...
+          </p>
+        </div>
+        <!-- Agregás más bloques según quieras -->
+      </div>
+  
+    </div>
+  </section>
 
-  <div class="floating-menu" id="floatingMenu">
-    <button><span>Sobre mí</span></button>
-    <div class="dot">•</div>
-    <button><span>Portfolio</span></button>
-    <div class="dot">•</div>
-    <button><span>Contacto</span></button>
-  </div>
-  
-  
+      <!-- SECCIONES EXTRAS -->
+      <section class="placeholder" id="portfolio">
+        <h2>Portfolio</h2>
+      </section>
+    
+      <section class="placeholder" id="contacto">
+        <h2>Contacto</h2>
+      </section>
+    
 
   <script src="script.js"></script>
   <script type="text/javascript" src="particles.min.js"></script>
