@@ -36,6 +36,7 @@
   </section>
 
   <section class="quien-soy" id="sobreMi">
+    <div class="quien-soy-wrapper">
     <!-- Columna izquierda: FOTOS FIJAS -->
     <div class="bloque-fijo">
       <div class="fotos-polaroid">
@@ -97,7 +98,6 @@
   <div class="scroll-down-indicator">
     <span>↓</span>
   </div>
-</div>
   </section>
   
 <!-- portfolio -->
@@ -120,17 +120,19 @@
       <h2>Portfolio</h2>
 
       <div class="portfolio-tabs">
-        <button class="tab active" data-target="logos">Logos</button>
+        <button class="tab active" data-target="piezas">Piezas Gráficas</button>
+        <div class="dot">•</div>
+        <button class="tab" data-target="logos">Logos</button>
         <div class="dot">•</div>
         <button class="tab" data-target="editorial">Editorial</button>
         <div class="dot">•</div>
         <button class="tab" data-target="vectorial">Ilustración Vectorial</button> 
-        <div class="dot">•</div>
-        <button class="tab" data-target="piezas">Piezas Gráficas</button>
+        
+        
       </div>
 
       <div class="portfolio-contenido">
-        <div class="galeria active" id="logos">
+        <div class="galeria" id="logos">
           <!-- Imagenes logos -->
           <img src="assets/logos/3-brujas-brew.avif" alt="3 brujas brew">
           <img src="assets/logos/agro-capincho.avif" alt="agro capincho">
@@ -160,7 +162,7 @@
           <img src="assets/vectorial/roma.avif" alt="roma">
           <img src="assets/vectorial/saraevna.avif" alt="Saraevna">
         </div>
-        <div class="galeria" id="piezas">
+        <div class="galeria active" id="piezas">
           <img src="assets/graficas/ccocru.avif" alt="coccru">
           <img src="assets/graficas/flyer.avif" alt="flyer">
           <img src="assets/graficas/gutenberg.avif" alt="gutenberg">
@@ -173,7 +175,17 @@
     </div>
 
   </div>
+</div>
 </section>
+
+<!-- Modal para imagen ampliada -->
+<div class="portfolio-modal" id="portfolioModal">
+  <div class="modal-content">
+    <img id="modalImage" src="" alt="Imagen ampliada">
+    <div class="modal-caption" id="modalCaption"></div>
+    <span class="modal-close" id="modalClose">×</span>
+  </div>
+</div>
 
 
   <!-- contacto -->
@@ -214,6 +226,7 @@
           </form>
         </div>
       </section>
+
     
 
   <script src="script.js"></script>

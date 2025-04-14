@@ -237,3 +237,31 @@ tabs.forEach(tab => {
     if (target) target.classList.add("active");
   });
 });
+
+
+// Modal
+const modal = document.getElementById('portfolioModal');
+const modalImg = document.getElementById('modalImage');
+const modalCaption = document.getElementById('modalCaption');
+const modalClose = document.getElementById('modalClose');
+
+// Abrir modal al hacer clic en imagen
+document.querySelectorAll('.galeria img').forEach(img => {
+  img.addEventListener('click', () => {
+    modal.style.display = 'flex';
+    modalImg.src = img.src;
+    modalCaption.textContent = img.getAttribute('data-caption') || '';
+  });
+});
+
+// Cerrar modal
+modalClose.addEventListener('click', () => {
+  modal.style.display = 'none';
+});
+
+// También cerrar si se hace clic fuera del contenido
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    modal.style.display = 'none';
+  }
+});
