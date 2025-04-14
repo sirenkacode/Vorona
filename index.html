@@ -34,53 +34,185 @@
   
     </div>
   </section>
-    <!-- seccion sobre mi -->
-  <section class="sobre-mi" id="sobreMi">
-    <div class="sobre-mi-wrapper">
-      
-      <!-- COLUMNA IZQUIERDA: FOTOS -->
-      <div class="sobre-mi-fotos">
-        <img src="profile1.jpg" alt="Foto 1" />
-        <img src="profile2.jpg" alt="Foto 2" />
-        <img src="profile3.webp" alt="Foto 2" />
-        <img src="profile4.jpg" alt="Foto 2" />
-      </div>
-  
-      <!-- COLUMNA DERECHA: TEXTO SCROLLABLE -->
-      <div class="sobre-mi-textos">
-        <div class="texto-bloque">
-          <h2>Quien soy</h2>
-          <p>
-            Soy una profesional creativa, proactiva y orientada a resultados,
-            con una gran pasión por los retos y una rápida capacidad de
-            aprendizaje, lo que me permite adaptarme con facilidad a nuevos
-            desafíos. Aunque trabajo como freelance, valoro profundamente
-            el trabajo en equipo y el compañerismo, ya que creo que la
-            colaboración es clave para el éxito de cualquier proyecto. Como
-            diseñadora, me especializo en encontrar enfoques auténticos,
-            funcionales y adaptados a las necesidades específicas de cada
-            proyecto, asegurando resultados innovadores y de alta calidad.
-          </p>
-        </div>
-        <div class="texto-bloque">
-          <h2>Diseño</h2>
-          <p>
-            Me especializo en enfoques auténticos, funcionales y adaptados a las necesidades específicas de cada proyecto...
-          </p>
-        </div>
-        <!-- Agregás más bloques según quieras -->
-      </div>
-  
-    </div>
-  </section>
 
-      <!-- SECCIONES EXTRAS -->
-      <section class="placeholder" id="portfolio">
-        <h2>Portfolio</h2>
-      </section>
+  <section class="quien-soy" id="sobreMi">
+    <!-- Columna izquierda: FOTOS FIJAS -->
+    <div class="bloque-fijo">
+      <div class="fotos-polaroid">
+        <img src="profile3.webp" class="polaroid foto3" alt="foto 3" />
+        <img src="profile2.jpg" class="polaroid foto2" alt="foto 2" />
+        <img src="profile4.jpg" class="polaroid foto4" alt="foto 4" />
+        <img src="profile1.jpg" class="polaroid foto1" alt="foto 1" />
+        
+      </div>
+    </div>
+  
+    <!-- Columna derecha: TEXTO SCROLLABLE -->
+    <div class="texto-scroll">
+      <div class="texto-bloque">
+        <h2 id="holaTitulo">¡Hola!</h2><h2>Soy Caterina Da Cunha</h2>
+        <p>Una profesional creativa, proactiva y orientada a resultados, con una gran pasión por los retos y una rápida capacidad de aprendizaje, lo que me permite adaptarme con facilidad a nuevos desafíos. Aunque trabajo como freelance, valoro profundamente el trabajo en equipo y el compañerismo, ya que creo que la colaboración es clave para el éxito de cualquier proyecto. Como diseñadora, me especializo en encontrar enfoques auténticos, funcionales y adaptados a las necesidades específicas de cada proyecto, asegurando resultados innovadores y de alta calidad.
+          </p>
+      </div>
+  
+      <div class="texto-bloque">
+        <h2>Habilidades</h2>
+        <p>
+          Planificación y gestión eficiente de plazos, garantizando entregas puntuales y de alta calidad.
+          Gran flexibilidad y capacidad de adaptación, resolviendo de manera efectiva las necesidades específicas de cada cliente. 
+          Alta motivación, confianza y paciencia para fomentar un ambiente de trabajo colaborativo y productivo.
+        </p>
+      
+        <!-- ÍCONOS DE IDIOMAS Y SOFTWARE -->
+        <div class="habilidades-iconos">
+          <img src="assets/icons/flag-russia.png" alt="Idioma ruso" title="Ruso">
+          <img src="assets/icons/flag-usa.png" alt="Idioma inglés" title="Inglés">
+          <img src="assets/icons/photoshop.png" alt="Adobe Photoshop" title="Photoshop">
+          <img src="assets/icons/illustrator.png" alt="Adobe Illustrator" title="Illustrator">
+          <img src="assets/icons/indesign.png" alt="Adobe InDesign" title="InDesign">
+        </div>
+      </div>
+  
+      <div class="texto-bloque">
+        <h2>Licencias y Certificaciones</h2>
+        <p>Escuela Nacional Bellas Artes / UDELAR - Montevideo
+          Licenciatura en Artes - Diseño Gráfico.
+        
+          First Certificate - Alianza
+          Ruso A1 -Instituto PushGENI
+          Ruso A1 -Instituto ЮФУ</p>
+      </div>
+  
+      <div class="texto-bloque">
+        <h2>Intereses</h2>
+        <p>Patinaje Artístico
+          Música
+          Piano 
+          Lectura 
+          Ilustración</p>
+      </div>
+    </div>
+
+     <!-- Flecha al final -->
+  <div class="scroll-down-indicator">
+    <span>↓</span>
+  </div>
+</div>
+  </section>
+  
+<!-- portfolio -->
+<section class="portfolio" id="portfolio">
+  <div class="portfolio-wrapper">
     
-      <section class="placeholder" id="contacto">
-        <h2>Contacto</h2>
+    <!-- Columna izquierda: EXPERIENCIA -->
+    <div class="portfolio-experiencia">
+     <div class="experiencia-contenido"> <h2>Experiencia</h2>
+      <p>
+        A lo largo de mi carrera como diseñadora gráfica, he trabajado en una amplia variedad de proyectos que abarcan identidad visual, diseño editorial, ilustración vectorial y piezas gráficas promocionales. Cada pieza está pensada para responder con autenticidad y funcionalidad a los objetivos de comunicación de cada cliente.
+      </p>
+      <a href="CaterinaDaCunha_CV.pdf" class="btn-descargar" download target="_blank">
+        📄 Descargar CV
+      </a></div>
+    </div>
+
+    <!-- Columna derecha: PORTFOLIO VISUAL -->
+    <div class="portfolio-visual">
+      <h2>Portfolio</h2>
+
+      <div class="portfolio-tabs">
+        <button class="tab active" data-target="logos">Logos</button>
+        <div class="dot">•</div>
+        <button class="tab" data-target="editorial">Editorial</button>
+        <div class="dot">•</div>
+        <button class="tab" data-target="vectorial">Ilustración Vectorial</button> 
+        <div class="dot">•</div>
+        <button class="tab" data-target="piezas">Piezas Gráficas</button>
+      </div>
+
+      <div class="portfolio-contenido">
+        <div class="galeria active" id="logos">
+          <!-- Imagenes logos -->
+          <img src="assets/logos/3-brujas-brew.avif" alt="3 brujas brew">
+          <img src="assets/logos/agro-capincho.avif" alt="agro capincho">
+          <img src="assets/logos/arcadia.avif" alt="arcadia">
+          <img src="assets/logos/atenea.avif" alt="atenea">
+          <img src="assets/logos/ccocru.avif" alt="ccocru">
+          <img src="assets/logos/celivida.avif" alt="celivida">
+          <img src="assets/logos/conejo-blanco.avif" alt="conejo blanco">
+          <img src="assets/logos/ecowind.avif" alt="ecowind">
+          <img src="assets/logos/escuela-prevencionista-en-seguridad-industrial.avif" 
+          alt="epsi">
+          <img src="assets/logos/gimnasia-artistica-piriapolis.avif" alt="gimnasia artistica">
+          <img src="assets/logos/la-casa-de-la-abertura.avif" alt="la casa de la abertura">
+          <img src="assets/logos/olivasi.avif" alt="olivasi">
+
+        </div>
+        <div class="galeria" id="editorial">
+          <img src="assets/editorial/la-reconquista.avif" alt="la reconquista">
+          <img src="assets/editorial/negociacion-para-emprendedores.avif" alt="negociacion para emprendedores">
+          <img src="assets/editorial/un-viaje-de-ida.avif" alt="un viaje de ida">
+        </div>
+        <div class="galeria" id="vectorial">
+          <img src="assets/vectorial/doodles-cuervos.avif" alt="doodles de cuervos">
+          <img src="assets/vectorial/matrioshka.avif" alt="matrioshka">
+          <img src="assets/vectorial/no-lo-pensamos-ni-un-poco.avif" alt="no lo pensamos ni un poco">
+          <img src="assets/vectorial/remoll-calazz-1.avif" alt="remoll y calazz">
+          <img src="assets/vectorial/roma.avif" alt="roma">
+          <img src="assets/vectorial/saraevna.avif" alt="Saraevna">
+        </div>
+        <div class="galeria" id="piezas">
+          <img src="assets/graficas/ccocru.avif" alt="coccru">
+          <img src="assets/graficas/flyer.avif" alt="flyer">
+          <img src="assets/graficas/gutenberg.avif" alt="gutenberg">
+          <img src="assets/graficas/la-farola-2.avif" alt="la farola">
+          <img src="assets/graficas/la-farola.avif" alt="la farola">
+          <img src="assets/graficas/marianela-nunez-sodre.avif" alt="sodre">
+          <img src="assets/graficas/rock-arg.avif" alt="">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+  <!-- contacto -->
+    
+      <section class="contacto" id="contacto">
+        <div class="contacto-wrapper">
+          <h2 id="contactTitle">Контакт</h2>
+          <div class="contact-boxes">
+            <div class="contact-info">
+              <p>📞 096 708 886</p>
+              <p>✉️ categri15@gmail.com</p>
+            </div>
+          
+            <div class="contact-social">
+              <a href="https://www.linkedin.com/in/caterina-da-cunha-stanko-0523b7197" target="_blank" title="LinkedIn">
+                <img src="assets/icons/linkedin.png" alt="LinkedIn" />
+              </a>
+              <a href="https://api.whatsapp.com/send/?phone=%2B59896708886&text&type=phone_number&app_absent=0" target="_blank" title="WhatsApp">
+                <img src="assets/icons/whatsapp.png" alt="WhatsApp" />
+              </a>
+              <a href="https://www.instagram.com/vorona.uy/" target="_blank" title="Instagram">
+                <img src="assets/icons/instagram.png" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+
+          <form action="send.php" method="POST" class="formulario-contacto">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" name="nombre" required />
+      
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+      
+            <label for="mensaje">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+      
+            <button type="submit">Enviar</button>
+          </form>
+        </div>
       </section>
     
 

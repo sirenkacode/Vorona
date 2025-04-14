@@ -129,3 +129,111 @@ window.addEventListener('scroll', () => {
     }
   });
 });
+
+function animateContactTitle() {
+  const original = "Контакт";
+  const target = "Contacto";
+  const titleEl = document.getElementById("contactTitle");
+  let result = original.split('');
+  let index = 0;
+
+  function animateChange() {
+    if (index >= Math.max(original.length, target.length)) return;
+
+    result[index] = target[index] || '';
+    let highlighted = '';
+
+    for (let i = 0; i < result.length; i++) {
+      if (i === index) {
+        highlighted += `<span class="highlight">${result[i]}</span>`;
+      } else {
+        highlighted += result[i];
+      }
+    }
+
+    titleEl.innerHTML = highlighted;
+    index++;
+
+    setTimeout(animateChange, 100);
+  }
+
+  animateChange();
+}
+
+let contactoAnimado = false;
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !contactoAnimado) {
+      contactoAnimado = true;
+      animateContactTitle();
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+const contactoSection = document.querySelector("#contacto");
+observer.observe(contactoSection);
+
+
+function animateHolaTitle() {
+  const original = "Привет!";
+  const target = "¡Hola!";
+  const titleEl = document.getElementById("holaTitulo");
+  let result = original.split('');
+  let index = 0;
+
+  function animateChange() {
+    if (index >= Math.max(original.length, target.length)) return;
+
+    result[index] = target[index] || '';
+    let highlighted = '';
+
+    for (let i = 0; i < result.length; i++) {
+      if (i === index) {
+        highlighted += `<span class="highlight">${result[i]}</span>`;
+      } else {
+        highlighted += result[i];
+      }
+    }
+
+    titleEl.innerHTML = highlighted;
+    index++;
+
+    setTimeout(animateChange, 100);
+  }
+
+  animateChange();
+}
+
+let holaAnimado = false;
+
+const observerHola = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting && !holaAnimado) {
+      holaAnimado = true;
+      animateHolaTitle();
+    }
+  });
+}, {
+  threshold: 0.5
+});
+
+const quienSoySection = document.querySelector("#sobreMi");
+observerHola.observe(quienSoySection);
+
+
+const tabs = document.querySelectorAll(".tab");
+const galleries = document.querySelectorAll(".galeria");
+
+tabs.forEach(tab => {
+  tab.addEventListener("click", () => {
+    tabs.forEach(t => t.classList.remove("active"));
+    galleries.forEach(g => g.classList.remove("active"));
+
+    tab.classList.add("active");
+    const target = document.getElementById(tab.dataset.target);
+    if (target) target.classList.add("active");
+  });
+});
