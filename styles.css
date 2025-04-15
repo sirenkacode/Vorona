@@ -33,9 +33,31 @@
     overflow-x: hidden;
   }
 
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .fade-in-out {
+    opacity: 0;
+    transition: opacity 1s ease;
+  }
+  
+  .fade-in-out.visible {
+    opacity: 1;
+  }
+  
   #title {
     font-family: 'Nautilus Pompilius', sans-serif;
+    animation: fadeIn 1.2s ease-in-out forwards;
+    opacity: 0;
   }
+
+
   
   #bg {
     position: fixed;
@@ -67,26 +89,45 @@
     transition: none;
   }
   
-  .navbar.sticky {
-    position: fixed;
-    top: 0;
+  @keyframes slideInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
   }
   
-  
-  
-  .navbar button {
+  .nav-button {
     background: none;
     border: none;
     color: #fff;
     font-size: 1.1em;
     font-family: "Arial Rounded MT Light", "Arial Rounded MT", "Arial", sans-serif;
     cursor: pointer;
+    opacity: 0;
+    animation: slideInLeft 0.6s ease forwards;
   }
+  
+  /* Delays para cada botón */
+  .nav-button:nth-of-type(1) { animation-delay: 0.4s; }
+  .nav-button:nth-of-type(2) { animation-delay: 0.6s; }
+  .nav-button:nth-of-type(3) { animation-delay: 0.8s; }
+  .nav-button:nth-of-type(4) { animation-delay: 1s; }
+  
   
   .dot {
     color: #6C1D45;
     font-size: 1.4em;
   }
+
+  .navbar.sticky {
+    position: fixed;
+    top: 0;
+  }
+
   
   /* INTRO */
   .intro {
@@ -137,6 +178,11 @@
     animation: none;
     opacity: 0;
   }
+
+  .highlight {
+    color: #6C1D45;
+    transition: color 0.3s ease;
+  }
   
   #pluma-destino {
     position: absolute;
@@ -147,18 +193,16 @@
     width: 1px;
   }
   
-  .highlight {
-    color: #6C1D45;
-    transition: color 0.3s ease;
-  }
+ 
   
   .feather-wrapper {
     position: absolute;
-    top: -300px;
+    top: -100px;
     left: 50%;
     transform: translateX(-50%);
     pointer-events: none;
     opacity: 0;
+    visibility: hidden;
     transition: opacity 1.5s ease;
   }
   
@@ -179,6 +223,7 @@
     color: #111;
     position: relative;
     overflow: hidden;
+    z-index: 1;
   }
 
   .quien-soy-wrapper {
@@ -201,33 +246,47 @@
     justify-content: center;
     align-items: center;
   }
-  
-  .fotos-polaroid {
-    position: relative;
-    width: 100%;
-    height: 100%;
-    padding: 40px;
-  }
-  
+ 
   .polaroid {
-    position: absolute;
     background-color: #EEDAEA;
-    padding: 12px 12px 35px 12px;
+    padding: 15px 15px 30px 15px;
     box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.2);
+    position: absolute;
     width: 260px;
-    height: auto;
-    transition: transform 0.3s ease, z-index 0.3s ease;
     z-index: 1;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
-
-  .fotos-polaroid {
-    position: relative;
+  
+  /* Imagen tal cual, sin efectos visuales ahora */
+  .reveal-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  
+  /* El velo blanco sobre la imagen */
+  .reveal-wrapper::after {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
     width: 100%;
     height: 100%;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background-color: white;
+    z-index: 2;
+    opacity: 1;
+    transition: opacity 2.2s ease-in-out;
+    pointer-events: none;
+  }
+  
+  /* Cuando se revela, el velo desaparece */
+  .polaroid.revelada .reveal-wrapper::after {
+    opacity: 0;
+  }
+  
+  /* IMPORTANTE: el contenedor debe ser posicionable */
+  .reveal-wrapper {
+    position: relative;
   }
   
   
@@ -239,6 +298,7 @@
   .polaroid:hover {
     z-index: 5;
     transform: scale(1.02) rotate(0deg);
+    box-shadow: 4px 6px 14px rgba(0, 0, 0, 0.3);
   }
   
   .texto-scroll {
@@ -338,6 +398,8 @@
     opacity: 1;
     transform: translateY(0);
   }
+  
+
 
   .portfolio {
     background-color: #fff;
@@ -352,26 +414,35 @@
   .portfolio-wrapper {
     display: flex;
     width: 100%;
-    max-width: 1400px;
+    max-width: 1650px;
     height: 100vh;
   }
   
   .portfolio-experiencia {
     flex: 0 0 25%;
     display: flex;
-    justify-content: center; /* centra el contenido interior verticalmente */
+    justify-content: center; 
     align-items: center;
-    padding: 0 30px;
-    text-align: center;
+    padding: 40px;
+    text-align: left;
+    z-index: 1;
   }
   
   .experiencia-contenido {
+    text-align: left !important;
+    max-width: 90%;        
+    width: 100%;
     display: flex;
-    flex-direction: column; /* ✅ Ordena el contenido en columna */
-    align-items: center;
+    flex-direction: column; 
+    align-items: flex-start;   
     justify-content: center;
-    gap: 20px; /* espacio entre título, texto y botón */
-    max-width: 90%;
+    gap: 20px;
+  }
+
+  .experiencia-contenido h2,
+  .experiencia-contenido p,
+  .experiencia-contenido a {
+  text-align: left;             /* 👈 Esto aplica también por separado */
   }
 
   /* Columna derecha centrada verticalmente también */
@@ -455,35 +526,58 @@
   .portfolio-contenido {
     flex-grow: 1;
     width: 100%;
-    overflow-y: auto;
+    overflow-y: scroll;
+    scrollbar-width: none;
+  }
+
+  .portfolio-contenido::-webkit-scrollbar {
+    display: none; 
   }
   
   .galeria {
     display: none;
     width: 100%;
-    padding: 0;
-    margin: 0 auto;
-    gap: 24px;
-    justify-items: center;
-    grid-template-columns: repeat(4, 1fr); /* ⬅️ 4 columnas fijas */
+    padding: 20px;
+    column-count: 3;
+    column-gap: 24px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
   }
-  
   
   .galeria.active {
-    display: grid;
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
   }
+  
   
   .galeria img {
     width: 100%;
-    height: auto;
+    margin-bottom: 24px;
+    break-inside: avoid;
     transition: transform 0.2s ease;
+    cursor: zoom-in;
+    border-radius: 4px;
   }
-  
   
   .galeria img:hover {
     transform: scale(1.04);
   }
 
+  @media (max-width: 768px) {
+    .galeria {
+      column-count: 2;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .galeria {
+      column-count: 1;
+    }
+  }
+  
+  
   .portfolio-modal {
     display: none;
     position: fixed;
@@ -501,7 +595,7 @@
     background-color: #fff;
     display: flex;
     flex-direction: row;
-    max-width: 900px;
+    max-width: 1400px;
     width: 90%;
     max-height: 90vh;
     overflow: hidden;
@@ -517,12 +611,52 @@
   
   .modal-caption {
     flex: 1;
-    padding: 20px;
+    padding: 40px 40px 40px 60px; /* ⬅️ más espacio a la izquierda */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     color: #111;
-    font-size: 1em;
     overflow-y: auto;
+    max-height: 90vh;
+    box-sizing: border-box;
   }
   
+  #modalTitle {
+    font-size: 1.6em;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-family: "Nautilus Pompilius", serif;
+    color: #000000;
+    margin-bottom: 8px;
+  }
+  
+  #modalSubtitle {
+    font-size: 1em;
+    font-weight: normal;
+    color: #000000;
+    margin-bottom: 15px;
+    margin-bottom: 20px;
+    font-style: italic;
+  }
+  
+  #modalCaption * {
+    color: black !important;
+    font-size: 0.95em;
+    line-height: 1.6;
+  }
+
+  /* Animación al abrir modal */
+.portfolio-modal .modal-content {
+  transform: scale(0.95);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.portfolio-modal.show .modal-content {
+  transform: scale(1);
+  opacity: 1;
+}
+
   .modal-close {
     position: absolute;
     top: 10px;
@@ -532,9 +666,6 @@
     cursor: pointer;
   }
   
-  
-  
-
   .contacto {
     color: #fff;
     height: 100vh;
@@ -640,5 +771,82 @@
   
   .formulario-contacto button:hover {
     background-color: #EEDAEA;
+  }
+  
+  @media (max-width: 768px) {
+    /* Título más grande */
+    #title {
+      font-size: 2.2em !important;
+    }
+  
+    /* Subtítulo */
+    #subtitle {
+      font-size: 1.1em !important;
+      top: 110%;
+    }
+  
+    /* Pluma más grande */
+    .feather {
+      width: 80px;
+    }
+  
+    /* Navbar sticky abajo sin separación */
+    .navbar {
+      position: fixed !important;
+      bottom: 0;
+      top: auto !important;
+      left: 0;
+      right: 0;
+      width: 100%;
+      padding: 14px 0;
+      z-index: 999;
+      background-color: rgba(17, 17, 17, 0.95);
+      border-top: 1px solid #333;
+    }
+  
+    .navbar.sticky {
+      position: fixed !important;
+      bottom: 0 !important;
+      top: auto !important;
+    }
+  
+    .navbar button {
+      font-size: 1.3em;
+      padding: 10px 14px;
+    }
+  
+    .dot {
+      font-size: 1.5em;
+    }
+  
+    /* Para que el contenido no quede tapado por la barra */
+    .intro {
+      padding-bottom: 80px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    #title {
+      font-size: 2.5rem !important;
+      line-height: 1.2;
+    }
+  
+    #subtitle {
+      font-size: 1.2rem !important;
+    }
+  
+    .navbar button {
+      font-size: 1.1rem !important;
+    }
+  
+    /* Íconos de los puntos medianos */
+    .dot {
+      font-size: 1.6em;
+    }
+  
+    /* Feather aún más visible */
+    .feather {
+      width: 90px;
+    }
   }
   

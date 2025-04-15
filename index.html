@@ -13,19 +13,19 @@
   <section class="intro" id="inicio">
     <div class="container">
   
-      <h1 id="title">Катерина Да Кунья Станко</h1>
+      <h1 id="title" class="fade-in-out">Катерина Да Кунья Станко</h1>
       <p id="subtitle" class="typewriter"></p>
       <div id="pluma-destino"></div>
   
       <!-- NAVBAR dentro de la sección 1 -->
       <nav class="navbar" id="navbar">
-        <button onclick="scrollToSection('inicio')"><span>Inicio</span></button>
+        <button class="nav-button" onclick="scrollToSection('inicio')"><span>Inicio</span></button>
         <div class="dot">•</div>
-        <button onclick="scrollToSection('sobreMi')"><span>Quien soy</span></button>
+        <button class="nav-button" onclick="scrollToSection('sobreMi')"><span>Quien soy</span></button>
         <div class="dot">•</div>
-        <button onclick="scrollToSection('portfolio')"><span>Portfolio</span></button>
+        <button class="nav-button" onclick="scrollToSection('portfolio')"><span>Portfolio</span></button>
         <div class="dot">•</div>
-        <button onclick="scrollToSection('contacto')"><span>Contacto</span></button>
+        <button class="nav-button" onclick="scrollToSection('contacto')"><span>Contacto</span></button>
       </nav>
   
       <div class="feather-wrapper" id="featherWrapper">
@@ -38,20 +38,42 @@
   <section class="quien-soy" id="sobreMi">
     <div class="quien-soy-wrapper">
     <!-- Columna izquierda: FOTOS FIJAS -->
-    <div class="bloque-fijo">
-      <div class="fotos-polaroid">
-        <img src="profile3.webp" class="polaroid foto3" alt="foto 3" />
-        <img src="profile2.jpg" class="polaroid foto2" alt="foto 2" />
-        <img src="profile4.jpg" class="polaroid foto4" alt="foto 4" />
-        <img src="profile1.jpg" class="polaroid foto1" alt="foto 1" />
-        
+    <div class="bloque-fijo"> 
+      <div class="fotos-polaroid fade-in-out">
+    
+        <div class="polaroid foto3">
+          <div class="reveal-wrapper">
+            <img src="profile3.webp" alt="foto 3" />
+          </div>
+        </div>
+    
+        <div class="polaroid foto2">
+          <div class="reveal-wrapper">
+            <img src="profile2.jpg" alt="foto 2" />
+          </div>
+        </div>
+    
+        <div class="polaroid foto4">
+          <div class="reveal-wrapper">
+            <img src="profile4.jpg" alt="foto 4" />
+          </div>
+        </div>
+    
+        <div class="polaroid foto1">
+          <div class="reveal-wrapper">
+            <img src="profile1.jpg" alt="foto 1" />
+          </div>
+        </div>
+    
       </div>
     </div>
+    
+    
   
     <!-- Columna derecha: TEXTO SCROLLABLE -->
-    <div class="texto-scroll">
+    <div class="texto-scroll fade-in-out">
       <div class="texto-bloque">
-        <h2 id="holaTitulo">¡Hola!</h2><h2>Soy Caterina Da Cunha</h2>
+        <h2 id="holaTitulo">¡Hola!</h2><h2>Soy Caterina</h2>
         <p>Una profesional creativa, proactiva y orientada a resultados, con una gran pasión por los retos y una rápida capacidad de aprendizaje, lo que me permite adaptarme con facilidad a nuevos desafíos. Aunque trabajo como freelance, valoro profundamente el trabajo en equipo y el compañerismo, ya que creo que la colaboración es clave para el éxito de cualquier proyecto. Como diseñadora, me especializo en encontrar enfoques auténticos, funcionales y adaptados a las necesidades específicas de cada proyecto, asegurando resultados innovadores y de alta calidad.
           </p>
       </div>
@@ -95,18 +117,21 @@
     </div>
 
      <!-- Flecha al final -->
-  <div class="scroll-down-indicator">
+  <div class="scroll-down-indicator fade-in-out">
     <span>↓</span>
   </div>
+  </div>
   </section>
+
   
 <!-- portfolio -->
 <section class="portfolio" id="portfolio">
   <div class="portfolio-wrapper">
     
     <!-- Columna izquierda: EXPERIENCIA -->
-    <div class="portfolio-experiencia">
-     <div class="experiencia-contenido"> <h2>Experiencia</h2>
+    <div class="portfolio-experiencia fade-in-out">
+     <div class="experiencia-contenido"> 
+      <h2>Experiencia</h2>
       <p>
         A lo largo de mi carrera como diseñadora gráfica, he trabajado en una amplia variedad de proyectos que abarcan identidad visual, diseño editorial, ilustración vectorial y piezas gráficas promocionales. Cada pieza está pensada para responder con autenticidad y funcionalidad a los objetivos de comunicación de cada cliente.
       </p>
@@ -116,7 +141,7 @@
     </div>
 
     <!-- Columna derecha: PORTFOLIO VISUAL -->
-    <div class="portfolio-visual">
+    <div class="portfolio-visual fade-in-out">
       <h2>Portfolio</h2>
 
       <div class="portfolio-tabs">
@@ -131,22 +156,41 @@
         
       </div>
 
-      <div class="portfolio-contenido">
+      <div class="portfolio-contenido fade-in-out">
         <div class="galeria" id="logos">
           <!-- Imagenes logos -->
-          <img src="assets/logos/3-brujas-brew.avif" alt="3 brujas brew">
-          <img src="assets/logos/agro-capincho.avif" alt="agro capincho">
+           <img src="assets/logos/patin-artistico-ateneo.avif" alt="Patin Artistico Ateneo"
+           data-title="Patín Ateneo"
+           data-subtitle="Logo">
+          <img src="assets/logos/3-brujas-brew.avif" alt="3 brujas brew"
+          data-title="3 Brujas Brew"
+          data-subtitle="Coffee Brewers">
+          <img src="assets/logos/agro-capincho.avif" alt="agro capincho" 
+          data-title="Agro Capincho" 
+          data-subtitle="Agroveterinaria Id. corporativa">
           <img src="assets/logos/arcadia.avif" alt="arcadia">
           <img src="assets/logos/atenea.avif" alt="atenea">
           <img src="assets/logos/ccocru.avif" alt="ccocru">
           <img src="assets/logos/celivida.avif" alt="celivida">
-          <img src="assets/logos/conejo-blanco.avif" alt="conejo blanco">
-          <img src="assets/logos/ecowind.avif" alt="ecowind">
+          <img src="assets/logos/conejo-blanco.avif" alt="conejo blanco"
+          data-title="Conejo Blanco"
+          data-subtitle="Estudio Cerámico
+          Id. corporativo + manual">
+          <img src="assets/logos/ecowind.avif" alt="ecowind"
+          data-title="EcoWind"
+          data-subtitle="Aires acondicionados
+          Id. corporativa + manual ">
           <img src="assets/logos/escuela-prevencionista-en-seguridad-industrial.avif" 
           alt="epsi">
           <img src="assets/logos/gimnasia-artistica-piriapolis.avif" alt="gimnasia artistica">
-          <img src="assets/logos/la-casa-de-la-abertura.avif" alt="la casa de la abertura">
-          <img src="assets/logos/olivasi.avif" alt="olivasi">
+          <img src="assets/logos/la-casa-de-la-abertura.avif" alt="la casa de la abertura"
+          data-title="LA CASA DE LA ABERTURA"
+          data-subtitle="Fabricación de aberturas de aluminio
+          Id. corporativa + manual ">
+          <img src="assets/logos/olivasi.avif" alt="olivasi"
+          data-title="OlivaSi"
+          data-subtitle="Accesorios en piedras naturales
+          Id.corporativa + manual">
 
         </div>
         <div class="galeria" id="editorial">
@@ -182,7 +226,12 @@
 <div class="portfolio-modal" id="portfolioModal">
   <div class="modal-content">
     <img id="modalImage" src="" alt="Imagen ampliada">
-    <div class="modal-caption" id="modalCaption"></div>
+    <div class="modal-caption">
+      <h3 id="modalTitle"></h3>
+      <h4 id="modalSubtitle"></h4>
+      <p id="modalCaption"></p>
+    </div>
+    
     <span class="modal-close" id="modalClose">×</span>
   </div>
 </div>
@@ -190,7 +239,7 @@
 
   <!-- contacto -->
     
-      <section class="contacto" id="contacto">
+      <section class="contacto fade-in-out" id="contacto">
         <div class="contacto-wrapper">
           <h2 id="contactTitle">Контакт</h2>
           <div class="contact-boxes">
