@@ -387,7 +387,7 @@
 
   .scroll-down-indicator {
     position: absolute;
-    top: 95%;
+    top: 91%;
     right: 35%;
     transform: translate(2%, -50%);
     font-size: 1.5rem;
@@ -1038,7 +1038,7 @@
 
   .bloque-fijo,
   .texto-scroll {
-    max-width: 300px;
+    max-width: 400px;
     padding: 0.5rem 0;
   }
 
@@ -1051,8 +1051,30 @@
     column-count: 1;
   }
 
+  .polaroid.foto1 {
+  width: 100%; 
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
+  }
+
   .texto-bloque {
-    min-height: 60vh;
+    min-height: 100vh;
+  }
+
+  .contacto {
+   height: 120vh;
+  }
+
+  .contact-info,
+  .contact-social {
+    max-height: 5vh;
+  }
+  
+  .feather {
+    width: 50px;
+  
   }
 
 }

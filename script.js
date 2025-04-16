@@ -1,5 +1,5 @@
 // Traducción del título
-const original = "Катерина Да Кунья Станко";
+const original = "Катерина Да Куна Станко";
 const target = "Caterina Da Cunha Stanko";
 
 const titleEl = document.getElementById("title");
