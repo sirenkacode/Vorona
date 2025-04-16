@@ -205,6 +205,8 @@ const modalTitle = document.getElementById('modalTitle');
 const modalSubtitle = document.getElementById('modalSubtitle');
 const modalCaption = document.getElementById('modalCaption');
 const modalClose = document.getElementById('modalClose');
+const prevButton = document.querySelector('.modal-prev');
+const nextButton = document.querySelector('.modal-next');
 
 document.querySelectorAll('.galeria img').forEach(img => {
   img.addEventListener('click', () => {
@@ -216,6 +218,7 @@ document.querySelectorAll('.galeria img').forEach(img => {
     modalCaption.textContent = img.getAttribute('data-caption') || '';
   });
 });
+
 
 modalClose.addEventListener('click', () => {
   modal.style.display = 'none';
@@ -235,6 +238,57 @@ modal.addEventListener('click', (e) => {
     setTimeout(() => modal.style.display = 'none', 300);
   }
 });
+
+// Obtener todas las imágenes de la galería activa
+let galleryImages = [];
+let currentIndex = 0;
+
+// Función para abrir el modal con la imagen seleccionada
+function openModal(index) {
+  const image = galleryImages[index];
+  modalImage.src = image.src;
+  modalTitle.textContent = image.getAttribute('data-title') || '';
+  modalSubtitle.textContent = image.getAttribute('data-subtitle') || '';
+  modal.style.display = 'flex';
+  currentIndex = index;
+}
+
+// Función para cerrar el modal
+function closeModal() {
+  modal.style.display = 'none';
+}
+
+// Función para mostrar la imagen anterior
+function showPrevImage() {
+  currentIndex = (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+  openModal(currentIndex);
+}
+
+// Función para mostrar la siguiente imagen
+function showNextImage() {
+  currentIndex = (currentIndex + 1) % galleryImages.length;
+  openModal(currentIndex);
+}
+
+// Asignar eventos a las flechas de navegación
+prevButton.addEventListener('click', showPrevImage);
+nextButton.addEventListener('click', showNextImage);
+
+// Asignar evento a cada imagen de la galería
+document.querySelectorAll('.galeria img').forEach((img, index) => {
+  img.addEventListener('click', () => {
+    galleryImages = Array.from(document.querySelectorAll('.galeria.active img'));
+    openModal(index);
+  });
+});
+
+// Cerrar el modal al hacer clic fuera del contenido
+modal.addEventListener('click', (e) => {
+  if (e.target === modal) {
+    closeModal();
+  }
+});
+
 
 
 // Animación "revelado" de las polaroids
